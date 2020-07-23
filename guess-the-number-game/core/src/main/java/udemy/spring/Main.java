@@ -14,14 +14,23 @@ public class Main {
     public static void main(String[] args) {
         log.info("Guess The Number Game");
 
-        // create context
+        // create context (container)
         ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(CONFIG_LOCATION);
+
+        // get number generator bean from context (container)
         NumberGenerator numberGenerator = context.getBean("numberGenerator", NumberGenerator.class);
 
+        // call method to get random number
         int number = numberGenerator.next();
 
         log.info("Number = {}", number);
-        
+
+        // get game bean from context (container)
+        Game game = context.getBean("game", Game.class);
+
+        // call game reset method
+        game.reset();
+
         context.close();
     }
 }

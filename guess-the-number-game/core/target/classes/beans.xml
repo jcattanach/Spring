@@ -4,8 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-
     <bean id="numberGenerator" class="udemy.spring.NumberGeneratorImpl"/>
 
+    <bean id="game" class="udemy.spring.GameImpl">
+        <constructor-arg ref="numberGenerator"/>
+    </bean>
 
 </beans>
