@@ -7,7 +7,8 @@
     <bean id="numberGenerator" class="udemy.spring.NumberGeneratorImpl"/>
 
     <bean id="game" class="udemy.spring.GameImpl">
-        <constructor-arg ref="numberGenerator"/>
+    <!-- "name" needs to match field in a class and "ref" needs to match the bean name-->
+        <property name="numberGenerator" ref="numberGenerator"/>
     </bean>
 
 </beans>
